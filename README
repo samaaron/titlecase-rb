@@ -1,0 +1,19 @@
+This filter changes all words to Title Caps, and attempts to be clever
+about *un*capitalising small words like a/an/the in the input.
+
+The list of "small words" which are not capped comes from
+the New York Times Manual of Style, plus 'vs' and 'v'. 
+
+Sam Aaron
+http://sam.aaron.name
+21st of May, 2008
+
+This is a Ruby port of the original Perl script written by John Gruber
+http://daringfireball.net/2008/05/title_case
+
+License: http://www.opensource.org/licenses/mit-license.php
+
+TODO
+----
+
+Gemify it and extend String with some title_case goodness
