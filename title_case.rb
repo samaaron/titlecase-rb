@@ -16,8 +16,6 @@
 #   License: http://www.opensource.org/licenses/mit-license.php
 #
 
-require 'rubygems'
-require 'activesupport'
 small_words = %w(a an and as at but by en for if in of on or the to v[.]? via vs[.]?)
 
 #define regexps
@@ -34,7 +32,7 @@ while(input_line = gets) do
       part.gsub!(WORDS_WHERE_THE_SECOND_CHAR_IS_LOWERCASE) do
         match = $1          
         if (match !~ WORDS_CONTAINING_A_PERIOD and match =~ WORDS_WHERE_THE_SECOND_CHAR_IS_LOWERCASE)
-          match = match.downcase.titleize
+          match = match.downcase.capitalize
         end
         
         if match =~ SMALL_WORDS
@@ -45,12 +43,12 @@ while(input_line = gets) do
       
       # If the first word in the title is a small word, then capitalise it:
       part.gsub!(FIRST_WORD_IS_A_SMALL_WORD) do
-        $1 + $2.titleize
+        $1 + $2.capitalize
       end
              
       # If the last word in the title is a small word, then capitalise it:
       part.gsub!(LAST_WORD_IS_A_SMALL_WORD) do
-        $1.titleize + $2
+        $1.capitalize + $2
       end
       part 
     end.join
